@@ -1,23 +1,41 @@
 const { Octokit } = require("@octokit/rest");
 const { createTokenAuth } = require("@octokit/auth-token");
+const fs = require('fs');
+path = require('path');
+filePathToken = path.join(__dirname, 'accessToken.txt');
+filePathUser = path.join(__dirname, 'user.txt');
+filePathRepo = path.join(__dirname, 'repo.txt');
 
-const token = "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"
+const token = fs.readFileSync(filePathToken,
+  {encoding:'utf8', flag:'r'});
+  
+  console.log(token)
 
 const octokit = new Octokit({
   auth: token
 });
-// Compare: https://docs.github.com/en/rest/reference/repos/#list-organization-repositories
-const auth = createTokenAuth(token);
-const authentication = auth();
+
+const user = fs.readFileSync(filePathUser,
+  {encoding:'utf8', flag:'r'});
+
+const repo = fs.readFileSync(filePathRepo,
+  {encoding:'utf8', flag:'r'});
+
 
 asyncCall();
 
 async function asyncCall(){
 
+var teams = octokit.rest.teams.getMembershipForUserInOrg({
+  org: "collaborationFactory",
+  team_slug,
+  username,
+});
+
 var check = await octokit.rest.repos.getCollaboratorPermissionLevel({
     owner: "collaborationFactory",
-    repo: "adminTest",
-    username: "TimHorm",
+    repo: repo,
+    username: user,
   });
 if (check.status != "200"){
     console.log("Error")
