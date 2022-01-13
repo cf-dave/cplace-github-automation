@@ -19,7 +19,7 @@ async function asyncCall(){
 
 var check = await octokit.rest.repos.getCollaboratorPermissionLevel({
     owner: "collaborationFactory",
-    repo: "adminTest",
+    repo: "cplace-tiba",
     username: "TimHorm",
   });
 if (check.status != "200"){
