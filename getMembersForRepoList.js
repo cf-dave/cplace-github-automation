@@ -87,11 +87,11 @@ async function asyncCall(){
         flags: 'a' // 'a' means appending (old data will be preserved)
       })
       for(let i = 0; i < members.length; i++){
-        logger.write("\n")
-        logger.write("\n")
+        
         logger.write(repos[i]+"\n")
         for(let j = 0; j < members[i].length; j++){
-            logger.write(members[i][j] + "  " + rights[i][j] +"\n")
-          }
+            logger.write(members[i][j] + "$" + rights[i][j] +"\n")
+        }
+        logger.write("§")
       }
 }
