@@ -17,6 +17,10 @@ const octokit = new Octokit({
 const auth = createTokenAuth(token);
 const authentication = auth();
 
+var user = ""
+var repo = ""
+var right = "s"
+
 octokit.rest.repos.addCollaborator({                  //working, but logging at the end gives undefined
   owner: "collaborationFactory",
   repo: "adminTest",
