@@ -1,0 +1,638 @@
+{
+	"name": "SR-000207",
+	"dataCardId": "11133725",
+	"templateName": "Service request",
+	"templateCode": "ServiceRequest",
+	"templateId": "76241",
+	"folderName": "Request Fulfilment",
+	"folderCode": "ServiceRequests",
+	"data": {
+		"serviedeskSenderAddress": {
+			"name": "Servicedesk Sender Address",
+			"type": "string",
+			"values": []
+		},
+		"servicePortal": {
+			"name": "Serviceportal Adress",
+			"type": "string",
+			"values": []
+		},
+		"testcenter": {
+			"name": "Testcenter",
+			"type": "string",
+			"values": []
+		},
+		"direktLink": {
+			"name": "Link to datacard",
+			"type": "string",
+			"values": [
+				{
+					"value": "https://servicedesk.collaboration-factory.de/itsm/Frameset.do?a=workspace/datacard/view/11133725"
+				}
+			]
+		},
+		"last_TT": {
+			"name": "Last TT",
+			"type": "date",
+			"values": []
+		},
+		"InfOnEmail": {
+			"name": "Information on Email",
+			"type": "date",
+			"values": []
+		},
+		"transformed": {
+			"name": "transformed",
+			"type": "static-value",
+			"values": []
+		},
+		"testString": {
+			"name": "Teststring",
+			"type": "string",
+			"values": []
+		},
+		"resolutionAsString": {
+			"name": "resolutionAsString",
+			"type": "string",
+			"values": []
+		},
+		"SendEmail2Supportperson": {
+			"name": "SendEmail2Supportperson",
+			"type": "string",
+			"values": []
+		},
+		"primary_id": {
+			"name": "Request primary ID",
+			"type": "string",
+			"values": [
+				{
+					"value": "SR-000207"
+				}
+			]
+		},
+		"status": {
+			"name": "Status",
+			"type": "static-value",
+			"values": [
+				{
+					"value": "01 - Not started",
+					"code": "request_status_new"
+				}
+			]
+		},
+		"RequestedFor": {
+			"name": "Requested for",
+			"type": "reference",
+			"values": [
+				{
+					"name": "Rene Camphausen",
+					"dataCardId": "10996141",
+					"templateName": "Person",
+					"templateCode": "person",
+					"url": "/dc/person/data/10996141",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		},
+		"CostCenter": {
+			"name": "Cost center",
+			"type": "reference",
+			"values": []
+		},
+		"OrderedBy": {
+			"name": "Ordered by",
+			"type": "reference",
+			"values": [
+				{
+					"name": "Rene Camphausen",
+					"dataCardId": "10996141",
+					"templateName": "Person",
+					"templateCode": "person",
+					"url": "/dc/person/data/10996141",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		},
+		"DeliveryAddress": {
+			"name": "Delivery address",
+			"type": "string",
+			"values": [
+				{
+					"value": "Delivery to user's default address"
+				}
+			]
+		},
+		"ServiceOffering": {
+			"name": "Service offering",
+			"type": "string",
+			"values": [
+				{
+					"value": "GitHub Management"
+				}
+			]
+		},
+		"RequestBundle": {
+			"name": "Request bundle",
+			"type": "reference",
+			"values": []
+		},
+		"RequestBundleName": {
+			"name": "Request bundle name",
+			"type": "string",
+			"values": [
+				{
+					"value": "GitHub Management"
+				}
+			]
+		},
+		"link_approval": {
+			"name": "Link to approval",
+			"type": "reference",
+			"values": []
+		},
+		"related_incident": {
+			"name": "Related incident",
+			"type": "reference",
+			"values": []
+		},
+		"user_reason": {
+			"name": "Order justification",
+			"type": "string",
+			"values": []
+		},
+		"DedicatedApprover": {
+			"name": "Dedicated approver",
+			"type": "reference",
+			"values": []
+		},
+		"approving_manager": {
+			"name": "Actual approver",
+			"type": "reference",
+			"values": []
+		},
+		"ordered_for_myself": {
+			"name": "Ordered for myself",
+			"type": "string",
+			"values": []
+		},
+		"request_type": {
+			"name": "Type",
+			"type": "static-value",
+			"values": [
+				{
+					"value": "Service Delivery Action",
+					"code": "request_type_service_delivery_action"
+				}
+			]
+		},
+		"chat_session_id": {
+			"name": "Chat sessions",
+			"type": "reference",
+			"values": []
+		},
+		"chat_discussions": {
+			"name": "Chat discussions",
+			"type": "string",
+			"values": []
+		},
+		"ServiceItem": {
+			"name": "Self-Service Item",
+			"type": "reference",
+			"values": [
+				{
+					"name": "IT Repository | New",
+					"dataCardId": "11133712",
+					"templateName": "Self-Service item",
+					"templateCode": "service_item",
+					"url": "/dc/service_item/data/11133712",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		},
+		"request_category": {
+			"name": "Category",
+			"type": "reference",
+			"values": []
+		},
+		"request_service": {
+			"name": "Service",
+			"type": "reference",
+			"values": []
+		},
+		"serviceItemExternalId": {
+			"name": "Self-Service Item ExternalID",
+			"type": "string",
+			"values": []
+		},
+		"Subject": {
+			"name": "Subject",
+			"type": "string",
+			"values": []
+		},
+		"Details": {
+			"name": "Details",
+			"type": "string",
+			"values": []
+		},
+		"AdditionalInformation": {
+			"name": "Additional information",
+			"type": "string",
+			"values": [
+				{
+					"value": "GitHub Username:czeroderg\\nSoftware repository:cplace-doc-user\\nAccess Level:Read\\nJustification:Meine Keime!!"
+				}
+			]
+		},
+		"Price": {
+			"name": "Price",
+			"type": "number",
+			"values": []
+		},
+		"MonthlySubscription": {
+			"name": "Monthly subscription",
+			"type": "number",
+			"values": []
+		},
+		"asset_model": {
+			"name": "Asset model",
+			"type": "reference",
+			"values": []
+		},
+		"related_assets": {
+			"name": "Related assets",
+			"type": "reference",
+			"values": []
+		},
+		"ServiceItemName": {
+			"name": "Self-ServiceItemName",
+			"type": "string",
+			"values": [
+				{
+					"value": "Grant Access to repository"
+				}
+			]
+		},
+		"support_group": {
+			"name": "Support group",
+			"type": "reference",
+			"values": []
+		},
+		"set_support_group": {
+			"name": "Set Support group",
+			"type": "string",
+			"values": []
+		},
+		"support_person": {
+			"name": "Support person",
+			"type": "reference",
+			"values": []
+		},
+		"tasks": {
+			"name": "Tasks",
+			"type": "reference",
+			"values": []
+		},
+		"resolution": {
+			"name": "Resolution",
+			"type": "string",
+			"values": []
+		},
+		"reason_for_abandoning": {
+			"name": "Reason for abandoning",
+			"type": "string",
+			"values": []
+		},
+		"email": {
+			"name": "E-mail",
+			"type": "external-reference",
+			"values": []
+		},
+		"RequestAttachments": {
+			"name": "File attachments",
+			"type": "external-reference",
+			"values": []
+		},
+		"internal_comments": {
+			"name": "Internal comments",
+			"type": "worklog",
+			"values": []
+		},
+		"external_comments": {
+			"name": "External comments",
+			"type": "worklog",
+			"values": []
+		},
+		"external_comments_monitor": {
+			"name": "External comment monitor",
+			"type": "string",
+			"values": []
+		},
+		"quantity": {
+			"name": "Quantity",
+			"type": "number",
+			"values": [
+				{
+					"value": 1
+				}
+			]
+		},
+		"totalPrice": {
+			"name": "Total price",
+			"type": "number",
+			"values": []
+		},
+		"TotalMonthlySubscription": {
+			"name": "Total monthly subscription",
+			"type": "number",
+			"values": []
+		},
+		"time_tracking": {
+			"name": "Time reports",
+			"type": "reference",
+			"values": []
+		},
+		"time_tracking_add_new": {
+			"name": "Add new to existing work time reports",
+			"type": "string",
+			"values": []
+		},
+		"time_tracking_all": {
+			"name": "Time reports",
+			"type": "reference",
+			"values": []
+		},
+		"sum_billable": {
+			"name": "Sum Billable",
+			"type": "string",
+			"values": [
+				{
+					"value": "0"
+				}
+			]
+		},
+		"sum_not_billable": {
+			"name": "Sum Not billable",
+			"type": "string",
+			"values": [
+				{
+					"value": "0"
+				}
+			]
+		},
+		"sum_unkown": {
+			"name": "Sum Unkown",
+			"type": "string",
+			"values": [
+				{
+					"value": "0"
+				}
+			]
+		},
+		"impact": {
+			"name": "Impact",
+			"type": "static-value",
+			"values": [
+				{
+					"value": "2. Medium",
+					"code": "request_impact_medium"
+				}
+			]
+		},
+		"urgency": {
+			"name": "Urgency",
+			"type": "static-value",
+			"values": [
+				{
+					"value": "2. Medium",
+					"code": "request_urgency_medium"
+				}
+			]
+		},
+		"priority": {
+			"name": "Priority",
+			"type": "static-value",
+			"values": [
+				{
+					"value": "3. Medium",
+					"code": "request_priority_medium"
+				}
+			]
+		},
+		"sla_used": {
+			"name": "SLA used",
+			"type": "reference",
+			"values": [
+				{
+					"name": "Default SLA",
+					"dataCardId": "4995605",
+					"templateName": "Service level",
+					"templateCode": "service_level",
+					"url": "/dc/service_level/data/4995605",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		},
+		"target_response_time": {
+			"name": "Target response",
+			"type": "date",
+			"values": [
+				{
+					"value": "2021-12-15T09:00:00Z"
+				}
+			]
+		},
+		"deadline": {
+			"name": "Target resolution",
+			"type": "date",
+			"values": [
+				{
+					"value": "2021-12-16T11:00:00Z"
+				}
+			]
+		},
+		"customDeadline": {
+			"name": "Custom target resolution time",
+			"type": "static-value",
+			"values": []
+		},
+		"implementation_start": {
+			"name": "Implementation start",
+			"type": "date",
+			"values": []
+		},
+		"implementation_end": {
+			"name": "Implementation end",
+			"type": "date",
+			"values": []
+		},
+		"target_response_time_achieved": {
+			"name": "Target response time achieved",
+			"type": "string",
+			"values": []
+		},
+		"target_resolution_time_achieved": {
+			"name": "Target resolution time achieved",
+			"type": "string",
+			"values": []
+		},
+		"resolution_time": {
+			"name": "Resolution time",
+			"type": "number",
+			"values": []
+		},
+		"rating": {
+			"name": "Rating input",
+			"type": "number",
+			"values": []
+		},
+		"rating_readable": {
+			"name": "Customer feedback",
+			"type": "string",
+			"values": []
+		},
+		"service_request_resolved": {
+			"name": "Service request resolved",
+			"type": "date",
+			"values": []
+		},
+		"service_request_rejected": {
+			"name": "Service request rejected",
+			"type": "date",
+			"values": []
+		},
+		"service_request_cancelled": {
+			"name": "Service request cancelled",
+			"type": "date",
+			"values": []
+		},
+		"service_request_closed": {
+			"name": "Service request closed",
+			"type": "date",
+			"values": []
+		},
+		"new_comment_time": {
+			"name": "New external comment time",
+			"type": "date",
+			"values": []
+		},
+		"support_group_changeSR": {
+			"name": "Support Group Change",
+			"type": "date",
+			"values": []
+		},
+		"WebShopId": {
+			"name": "Self-Service ID",
+			"type": "string",
+			"values": [
+				{
+					"value": "6fafdc31-adac-4e01-982d-6b3ccb4e34eb"
+				}
+			]
+		},
+		"Language": {
+			"name": "Language",
+			"type": "string",
+			"values": [
+				{
+					"value": "en_US"
+				}
+			]
+		},
+		"SiteID": {
+			"name": "Site ID",
+			"type": "string",
+			"values": [
+				{
+					"value": "AllUsers"
+				}
+			]
+		},
+		"SiteName": {
+			"name": "Site name",
+			"type": "string",
+			"values": [
+				{
+					"value": "All users"
+				}
+			]
+		},
+		"workflow_name": {
+			"name": "Workflow name",
+			"type": "string",
+			"values": []
+		},
+		"workflow_version": {
+			"name": "Workflow version",
+			"type": "string",
+			"values": []
+		},
+		"workflow_status": {
+			"name": "Workflow status",
+			"type": "string",
+			"values": []
+		},
+		"efecte_id": {
+			"name": "Efecte ID",
+			"type": "string",
+			"values": [
+				{
+					"value": "SR-000207"
+				}
+			]
+		},
+		"created": {
+			"name": "Created",
+			"type": "date",
+			"values": [
+				{
+					"value": "2021-12-14T15:00:00Z"
+				}
+			]
+		},
+		"updated": {
+			"name": "Updated",
+			"type": "date",
+			"values": [
+				{
+					"value": "2021-12-14T15:00:00Z"
+				}
+			]
+		},
+		"creator": {
+			"name": "Creator",
+			"type": "reference",
+			"values": [
+				{
+					"name": "WebAPI",
+					"dataCardId": "92783",
+					"templateName": "User",
+					"templateCode": "admin",
+					"url": "/dc/admin/data/92783",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		},
+		"last_update_by": {
+			"name": "Last update by",
+			"type": "reference",
+			"values": [
+				{
+					"name": "WebAPI",
+					"dataCardId": "92783",
+					"templateName": "User",
+					"templateCode": "admin",
+					"url": "/dc/admin/data/92783",
+					"hidden": false,
+					"deleted": false
+				}
+			]
+		}
+	},
+	"hidden": false,
+	"deleted": false
+}
