@@ -17,28 +17,36 @@ const octokit = new Octokit({
 const auth = createTokenAuth(token);
 const authentication = auth();
 
+
 fs.readFile('todo.txt', 'utf-8', (err, data) => {
   if(err){
       console.error(err)
-      return
   }
-  values = data.split("\n")
-  user = data[0].split(":")[1]
-  repo = data[1].split(":")[1]
-  level = data[2].split(":")[1]
-  justification = data[3].split(":")[1]
-  console.log(data)
+  addUser(data)
 })
 
+//addUser(repo, user, level.toLowerCase())
 
-octokit.rest.repos.addCollaborator({                  //working, but logging at the end gives undefined
-  owner: "collaborationFactory",
-  repo: repo,
-  username: user,
-  permission: level
-  })
-  .then(({data}) => {
-    //console.log(data)
-  });
 
-  console.log("Script ran through")
+
+function addUser(data){
+  console.log(data)
+  var repo, user, level, justification;
+  values = data.split("\n")
+  user =  values[0].split(":")[1]
+  repo = values[1].split(":")[1]
+  level = values[2].split(":")[1]
+  justification = values[3].split(":")[1]
+  console.log(repo.trim().length)
+  console.log(user)
+  console.log(level)
+  octokit.rest.repos.addCollaborator({                  //working, but logging at the end gives undefined
+    owner: "collaborationFactory",
+    repo: repo.trim(),
+    username: user.trim(),
+    permission: level.trim().toLowerCase()
+    })
+    .then(({data}) => {
+      console.log("Script ran through")
+    });
+}

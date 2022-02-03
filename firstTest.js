@@ -1,7 +1,13 @@
 const { Octokit } = require("@octokit/rest");
 const { createTokenAuth } = require("@octokit/auth-token");
+const fs = require('fs');
+path = require('path');
+filePath = path.join(__dirname, 'accessToken.txt');
 
-const token = "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"
+const token = fs.readFileSync(filePath,
+  {encoding:'utf8', flag:'r'});
+  
+  console.log(token)
 
 const octokit = new Octokit({
   auth: token
@@ -14,7 +20,7 @@ const authentication = auth();
 octokit.rest.repos.addCollaborator({
 owner: "collaborationFactory",
 repo: "adminTest",
-username: "CzeroDerg",
+username: "cf-dave",
 permission: "admin"
 })
 .then(({data}) => {

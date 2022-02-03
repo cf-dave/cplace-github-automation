@@ -34,7 +34,7 @@ params = (
 )
 
 
-r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204512', headers=headers)#, params=params) #||||11133725
+r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204626', headers=headers)#, params=params) #||||11133725
 #print(r2.text)
 
 #result = r2.text.replace("\\\"", "\"")
@@ -50,6 +50,10 @@ print(status)
 user = "cf-dave"
 repo, level, justification = additionalInformation[0].split(':')[1], additionalInformation[1].split(':')[1],additionalInformation[2].split(':')[1]#,additionalInformation[3].split(':')[1]
 
+if level == "Read":
+    level = "pull"
+elif level == "Write":
+    level = "push"
 
 """#Debug prints
 print(serviceOffering)
@@ -84,8 +88,8 @@ elif service == 2:
     with open("todo.txt", 'w') as fd:
             #print(repo)
             fd.write("user:"+ user+"\n")
-            if(repo.startswith('cplace')):
-                fd.write("repoName:"+ repo+"\n")
+            #if(repo.startswith('cplace')):
+            fd.write("repoName:"+ repo+"\n")
             fd.write("level:"+level+"\n")
             fd.write("justification:"+justification+"\n")  
     if(status == "01 - Not started"):
@@ -93,8 +97,8 @@ elif service == 2:
         mail = outlook.CreateItem(0)
         mail.To = 'david.weyenschops@collaboration-factory.de'
         mail.Subject = 'GitHub Access Approval'
-        mail.HTMLBody = '<h3>Please follow this link. https://www.youtube.com/watch?v=dQw4w9WgXcQ</h3>'
-        mail.Body = "Please follow this link. https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        mail.HTMLBody = '<h3>The user ' + user + ' wants to have ' + level.lower() + ' permission to the repo ' + repo +'. The justification for this action is \"' + justification+ '\". Please follow this link to approve or deny the request. https://www.youtube.com/watch?v=dQw4w9WgXcQ</h3>'
+        mail.Body = 'The user ' + user+ ' wants to have ' + level.lower() + ' permission to the repo ' + repo +'. The justification for this action is \"' + justification+ '\". Please follow this link to approve or deny the request. https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         #mail.Attachments.Add('c:\\sample.xlsx')
         #mail.Attachments.Add('c:\\sample2.xlsx')
         #mail.CC = 'somebody@company.com'
