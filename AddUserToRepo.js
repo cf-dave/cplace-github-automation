@@ -7,7 +7,7 @@ filePath = path.join(__dirname, 'accessToken.txt');
 const token = fs.readFileSync(filePath,
   {encoding:'utf8', flag:'r'});
   
-  console.log(token)
+  //console.log(token)
 
 const octokit = new Octokit({
   auth: token
@@ -30,16 +30,16 @@ fs.readFile('todo.txt', 'utf-8', (err, data) => {
 
 
 function addUser(data){
-  console.log(data)
+  //console.log(data)
   var repo, user, level, justification;
   values = data.split("\n")
   user =  values[0].split(":")[1]
   repo = values[1].split(":")[1]
   level = values[2].split(":")[1]
   justification = values[3].split(":")[1]
-  console.log(repo.trim().length)
-  console.log(user)
-  console.log(level)
+  //console.log(repo.trim().length)
+  //console.log(user)
+  //console.log(level)
   octokit.rest.repos.addCollaborator({                  //working, but logging at the end gives undefined
     owner: "collaborationFactory",
     repo: repo.trim(),

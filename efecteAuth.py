@@ -79,8 +79,9 @@ if service==1:
         print(repo)
         if(repo.startswith('cplace')):
             fd.write("repoName:"+ repo)
-            p = check_output(['node', 'testJSOutput.js'])
-            print (p)
+            p = check_output(['node', 'createRepo.js'])
+            if p == "Script ran through":
+                print("Script ran through")
         else:
             #reject for naming scheme
             print("Illegal name")
