@@ -5,5 +5,10 @@ fs.readFile('todo.txt', 'utf-8', (err, data) => {
         console.error(err)
         return
     }
+    values = data.split("\n")
+    user = data[0].split(":")[1]
+    repo = data[1].split(":")[1]
+    level = data[2].split(":")[1]
+    justification = data[3].split(":")[1]
     console.log(data)
 })
