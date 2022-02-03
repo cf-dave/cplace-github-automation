@@ -36,8 +36,13 @@ params = (
 
 r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204626', headers=headers)#, params=params) #||||11133725
 #print(r2.text)
+r2T = json.loads(r2.text)
+dataCards = r2T['data']
 
-#result = r2.text.replace("\\\"", "\"")
+ghRequests = []
+
+#for datacard in dataCards:     Go through and filter the git hub ones out
+    #if 
 
 ticket = json.loads(r2.text)
 status = ticket['data']['status']['values'][0]['value']
