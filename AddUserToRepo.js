@@ -17,16 +17,28 @@ const octokit = new Octokit({
 const auth = createTokenAuth(token);
 const authentication = auth();
 
-var user = ""
-var repo = ""
-var right = "s"
+fs.readFile('todo.txt', 'utf-8', (err, data) => {
+  if(err){
+      console.error(err)
+      return
+  }
+  values = data.split("\n")
+  user = data[0].split(":")[1]
+  repo = data[1].split(":")[1]
+  level = data[2].split(":")[1]
+  justification = data[3].split(":")[1]
+  console.log(data)
+})
+
 
 octokit.rest.repos.addCollaborator({                  //working, but logging at the end gives undefined
   owner: "collaborationFactory",
-  repo: "adminTest",
-  username: "CzeroDerg",
-  permission: "admin"
+  repo: repo,
+  username: user,
+  permission: level
   })
   .then(({data}) => {
     //console.log(data)
   });
+
+  console.log("Script ran through")
