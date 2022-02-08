@@ -28,21 +28,36 @@ headers = {
 
 params = (
     #('filter', '$Self-Service Item$ = \'IT Repository | New\''),
-    ('selectedAttributes', 'subject, description, status'),
+    ('selectedAttributes', 'subject, request_service, status, ServiceItem'),
     ('limit', '50'),
     ('filterId', '1000000000'),
 )
 
 
 r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204626', headers=headers)#, params=params) #||||11133725
+r3 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data', headers=headers, params=params)
 #print(r2.text)
 r2T = json.loads(r2.text)
-dataCards = r2T['data']
+r3T = json.loads(r3.text)
+dataCards = r3T['data']
 
-ghRequests = []
+for datacard in dataCards:     #Go through and filter the git hub ones out
+    notStarted = []
+    approved = []
+    if len(datacard['data']['request_service']['values']) > 0:
+        if datacard['data']['request_service']['values'][0]['name'] == 'GitHub Management':
+            service = datacard['data']['ServiceItem']['values'][0]['name']
+            status = datacard['data']['status']['values'][0]['value']
+            id = datacard['dataCardId']
+            if status == '01 - Not started':
+                notStarted.append([id, service])
+            elif status == '03 - Approved' :
+                approved.append([id, service])
+            else:
+                continue
+ghRequests = [notStarted, approved]
 
-#for datacard in dataCards:     Go through and filter the git hub ones out
-    #if 
+
 
 ticket = json.loads(r2.text)
 status = ticket['data']['status']['values'][0]['value']
