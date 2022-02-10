@@ -4,6 +4,7 @@ import json
 from subprocess import check_output
 import win32com.client
 import smtplib, ssl
+from email.mime.text import MIMEText
 
 
 host = 'smtp.office365.com'
