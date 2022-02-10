@@ -3,9 +3,13 @@ import requests
 import json
 from subprocess import check_output
 import win32com.client
+import smtplib, ssl
 
 
+host = 'smtp.office365.com'
+port = 587
 
+smptObj = smtplib.SMTP([host])
 
 headers = {
     'accept': 'application/json',
@@ -114,6 +118,7 @@ elif service == 2:
             fd.write("level:"+level+"\n")
             fd.write("justification:"+justification+"\n")  
     if(status == "01 - Not started"):
+        """
         outlook = win32com.client.Dispatch('outlook.application')
         mail = outlook.CreateItem(0)
         mail.To = 'david.weyenschops@collaboration-factory.de'
@@ -125,6 +130,30 @@ elif service == 2:
         #mail.CC = 'somebody@company.com'
         mail.Send()
             #email out
+        """
+        sender = 'david.weyenschops@collaboration-factory.de'
+        receivers = ['david.weyenschops@collaboration-factory.de']
+        message = "Lol"
+
+        text_subtype = 'plain'
+        content = """\
+            'The user ' + user+ ' wants to have ' + level.lower() + ' permission to the repo ' + repo +'. The justification for this action is \"' + justification+ '\". Please follow this link to approve or deny the request. https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            """
+        subject = "Sent from python"
+        try:
+            smtpObj = smtplib.SMTP(host, port)
+            smtpObj.ehlo()
+            smtpObj.starttls()
+            smtpObj.ehlo()
+            smtpObj.login('david.weyenschops@collaboration-factory.de', 'DelfinFlosse45')
+            msg = MIMEText(content, text_subtype)
+            msg['Subject'] = subject
+            msg['From'] = sender
+            smtpObj.sendmail(sender,receivers,msg.as_string())
+            print("Success")
+            smtpObj.quit()
+        except:
+            print("Error")
     elif(status == "03 - Approved"):
         #start js script
         p = check_output(['node', 'AddUserToRepo.js'])
