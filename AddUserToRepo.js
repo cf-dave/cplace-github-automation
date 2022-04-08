@@ -18,10 +18,11 @@ const auth = createTokenAuth(token);
 const authentication = auth();
 
 
-fs.readFile('todo.txt', 'utf-8', (err, data) => {
+fs.readFile('todo.json', 'utf-8', (err, data) => {
   if(err){
       console.error(err)
   }
+  const todo = JSON.parse(data)
   addUser(data)
 })
 

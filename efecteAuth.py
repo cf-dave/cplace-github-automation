@@ -67,13 +67,18 @@ serviceItem = ticket['data']['ServiceItem']['values'][0]['name']                
 additionalInformation = (ticket['data']['AdditionalInformation']['values'][0]['value']).split("\n")
 print(status)
 
-user = "cf-dave"
-repo, level, justification = additionalInformation[0].split(':')[1], additionalInformation[1].split(':')[1],additionalInformation[2].split(':')[1]#,additionalInformation[3].split(':')[1]
+#user = "cf-dave"
+#repo, level, justification = additionalInformation[0].split(':')[1], additionalInformation[1].split(':')[1],additionalInformation[2].split(':')[1]#,additionalInformation[3].split(':')[1]
 
-if level == "Read":
-    level = "pull"
-elif level == "Write":
-    level = "push"
+lines = dict()
+for line in additionalInformation:
+    lines[line.split(':')[0]] = line.split(':')[1]
+
+
+#if level == "Read":
+#    level = "pull"
+#elif level == "Write":
+#    level = "push"
 
 """#Debug prints
 print(serviceOffering)
@@ -94,26 +99,20 @@ elif serviceItem == "IT Repository | Access Request":
 else:
     service = 0
 
+with open("todo.json", 'w') as outfile:
+        json.dump(lines, outfile)
+
+
 if service==1:
-    with open("todo.txt", 'w') as fd:
-        print(repo)
-        if(repo.startswith('cplace')):
-            fd.write("repoName:"+ repo)
-            p = check_output(['node', 'createRepo.js'])
-            if p == "Script ran through":
-                print("Script ran through")
-        else:
-            #reject for naming scheme
-            print("Illegal name")
+    p = check_output(['node', 'createRepo.js'])
+    if p == "Script ran through":
+        print("Script ran through")
+    else:
+        #Error
+        print("Error ocurred")
 elif service == 2:
-    with open("todo.txt", 'w') as fd:
-            #print(repo)
-            fd.write("user:"+ user+"\n")
-            #if(repo.startswith('cplace')):
-            fd.write("repoName:"+ repo+"\n")
-            fd.write("level:"+level+"\n")
-            fd.write("justification:"+justification+"\n")  
     if(status == "01 - Not started"):
+        """
         outlook = win32com.client.Dispatch('outlook.application')
         mail = outlook.CreateItem(0)
         mail.To = 'david.weyenschops@collaboration-factory.de'
@@ -125,6 +124,7 @@ elif service == 2:
         #mail.CC = 'somebody@company.com'
         mail.Send()
             #email out
+        """
     elif(status == "03 - Approved"):
         #start js script
         p = check_output(['node', 'AddUserToRepo.js'])
