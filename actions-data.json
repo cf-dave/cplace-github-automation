@@ -1,0 +1,964 @@
+[
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 8616456,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Milos",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Misic",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "milosmisicbg@gmail.com",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Software Engineer (f/m/d) Enterprise Connectivity (Nearshore)",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": null,
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": null,
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-04-14T18:46:45+02:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 160289,
+                        "name": "Remote"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 325539,
+                        "name": "Engineering"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    },
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 8493785,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Lavannya",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Varghese",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "lavannyavarghese@gmail.com",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Working Student Opperations & Support",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": {
+                    "type": "Employee",
+                    "attributes": {
+                        "id": {
+                            "label": "ID",
+                            "value": 3626425,
+                            "type": "integer",
+                            "universal_id": "id"
+                        },
+                        "first_name": {
+                            "label": "First name",
+                            "value": "Martin",
+                            "type": "standard",
+                            "universal_id": "first_name"
+                        },
+                        "last_name": {
+                            "label": "Last name",
+                            "value": "Rauch",
+                            "type": "standard",
+                            "universal_id": "last_name"
+                        },
+                        "email": {
+                            "label": "Email",
+                            "value": "martin.rauch@collaboration-factory.de",
+                            "type": "standard",
+                            "universal_id": "email"
+                        }
+                    }
+                },
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": "2022-05-01T00:00:00+02:00",
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-04-07T20:34:49+02:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 150709,
+                        "name": "Munich"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 349584,
+                        "name": "IT Operations & Support"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "lavannyavarghese@gmail.com",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "Englisch/English",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "Internal",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "Jakob Leitmeir",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    },
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 8349544,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Mohammad",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Hemmati",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "mhsrwcc@gmail.com",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Site Reliability Engineer ",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": {
+                    "type": "Employee",
+                    "attributes": {
+                        "id": {
+                            "label": "ID",
+                            "value": 3626425,
+                            "type": "integer",
+                            "universal_id": "id"
+                        },
+                        "first_name": {
+                            "label": "First name",
+                            "value": "Martin",
+                            "type": "standard",
+                            "universal_id": "first_name"
+                        },
+                        "last_name": {
+                            "label": "Last name",
+                            "value": "Rauch",
+                            "type": "standard",
+                            "universal_id": "last_name"
+                        },
+                        "email": {
+                            "label": "Email",
+                            "value": "martin.rauch@collaboration-factory.de",
+                            "type": "standard",
+                            "universal_id": "email"
+                        }
+                    }
+                },
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": "2022-05-01T00:00:00+02:00",
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-03-31T15:52:37+02:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 150709,
+                        "name": "Munich"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 349584,
+                        "name": "IT Operations & Support"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "mhsrwcc@gmail.com",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "Englisch/English",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "Internal",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "Jakob Leitmeir ",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    },
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 8305639,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Julia",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Gerstner",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "julia.gerstner@t-online.de",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Content Marketing Manager - Communications & PR",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": {
+                    "type": "Employee",
+                    "attributes": {
+                        "id": {
+                            "label": "ID",
+                            "value": 1303832,
+                            "type": "integer",
+                            "universal_id": "id"
+                        },
+                        "first_name": {
+                            "label": "First name",
+                            "value": "Andrea",
+                            "type": "standard",
+                            "universal_id": "first_name"
+                        },
+                        "last_name": {
+                            "label": "Last name",
+                            "value": "Kern",
+                            "type": "standard",
+                            "universal_id": "last_name"
+                        },
+                        "email": {
+                            "label": "Email",
+                            "value": "andrea.kern@collaboration-factory.de",
+                            "type": "standard",
+                            "universal_id": "email"
+                        }
+                    }
+                },
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": "2022-07-01T00:00:00+02:00",
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-03-29T16:13:40+02:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 150709,
+                        "name": "Munich"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 325524,
+                        "name": "Marketing"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "julia.gerstner@t-online.de",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "German/English",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "Internal",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    },
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 7972853,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Marcel",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Hudy",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "hudymarcel@gmail.com",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Fullstack Engineer",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": {
+                    "type": "Employee",
+                    "attributes": {
+                        "id": {
+                            "label": "ID",
+                            "value": 1303888,
+                            "type": "integer",
+                            "universal_id": "id"
+                        },
+                        "first_name": {
+                            "label": "First name",
+                            "value": "Silke",
+                            "type": "standard",
+                            "universal_id": "first_name"
+                        },
+                        "last_name": {
+                            "label": "Last name",
+                            "value": "R\u00fcter",
+                            "type": "standard",
+                            "universal_id": "last_name"
+                        },
+                        "email": {
+                            "label": "Email",
+                            "value": "silke.rueter@collaboration-factory.de",
+                            "type": "standard",
+                            "universal_id": "email"
+                        }
+                    }
+                },
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": "2022-05-01T00:00:00+02:00",
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-03-10T19:21:49+01:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 150709,
+                        "name": "Munich"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 349583,
+                        "name": "Engineering Gantt / QA"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "German/English",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "Internal",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "Judith Selig",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    },
+    {
+        "type": "Employee",
+        "attributes": {
+            "id": {
+                "label": "ID",
+                "value": 7052011,
+                "type": "integer",
+                "universal_id": "id"
+            },
+            "first_name": {
+                "label": "First name",
+                "value": "Gesa",
+                "type": "standard",
+                "universal_id": "first_name"
+            },
+            "last_name": {
+                "label": "Last name",
+                "value": "Fr\u00fchling",
+                "type": "standard",
+                "universal_id": "last_name"
+            },
+            "email": {
+                "label": "Email",
+                "value": "gesa.fruehling@gmx.de",
+                "type": "standard",
+                "universal_id": "email"
+            },
+            "status": {
+                "label": "Status",
+                "value": "onboarding",
+                "type": "standard",
+                "universal_id": "status"
+            },
+            "position": {
+                "label": "Position",
+                "value": "Talent Acquisition Manager ",
+                "type": "standard",
+                "universal_id": "position"
+            },
+            "supervisor": {
+                "label": "Supervisor",
+                "value": {
+                    "type": "Employee",
+                    "attributes": {
+                        "id": {
+                            "label": "ID",
+                            "value": 1303834,
+                            "type": "integer",
+                            "universal_id": "id"
+                        },
+                        "first_name": {
+                            "label": "First name",
+                            "value": "Anke",
+                            "type": "standard",
+                            "universal_id": "first_name"
+                        },
+                        "last_name": {
+                            "label": "Last name",
+                            "value": "Spichale",
+                            "type": "standard",
+                            "universal_id": "last_name"
+                        },
+                        "email": {
+                            "label": "Email",
+                            "value": "anke.spichale@collaboration-factory.de",
+                            "type": "standard",
+                            "universal_id": "email"
+                        }
+                    }
+                },
+                "type": "standard",
+                "universal_id": "supervisor"
+            },
+            "employment_type": {
+                "label": "Employment type",
+                "value": "internal",
+                "type": "standard",
+                "universal_id": "employment_type"
+            },
+            "hire_date": {
+                "label": "Hire date",
+                "value": "2022-05-01T00:00:00+02:00",
+                "type": "date",
+                "universal_id": "hire_date"
+            },
+            "termination_date": {
+                "label": "Termination date",
+                "value": null,
+                "type": "date",
+                "universal_id": "termination_date"
+            },
+            "created_at": {
+                "label": "Created at",
+                "value": "2022-01-26T10:27:10+01:00",
+                "type": "date",
+                "universal_id": "created_at"
+            },
+            "office": {
+                "label": "Office",
+                "value": {
+                    "type": "Office",
+                    "attributes": {
+                        "id": 160287,
+                        "name": "Hannover"
+                    }
+                },
+                "type": "standard",
+                "universal_id": "office"
+            },
+            "department": {
+                "label": "Department",
+                "value": {
+                    "type": "Department",
+                    "attributes": {
+                        "id": 349582,
+                        "name": "HR "
+                    }
+                },
+                "type": "standard",
+                "universal_id": "department"
+            },
+            "last_working_day": {
+                "label": "Last day of work",
+                "value": null,
+                "type": "date",
+                "universal_id": "last_working_day"
+            },
+            "team": {
+                "label": "Team",
+                "value": null,
+                "type": "standard",
+                "universal_id": "team"
+            },
+            "dynamic_676432": {
+                "label": "E-Mail privat",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            },
+            "dynamic_2690447": {
+                "label": "Sprache",
+                "value": "German/English",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_546104": {
+                "label": "Vertragsart",
+                "value": "Internal",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_579958": {
+                "label": "Titel",
+                "value": "",
+                "type": "list",
+                "universal_id": null
+            },
+            "dynamic_677278": {
+                "label": "Buddy",
+                "value": "",
+                "type": "standard",
+                "universal_id": null
+            }
+        }
+    }
+]

@@ -33,6 +33,53 @@ params = (
     ('filterId', '1000000000'),
 )
 
+employeesList = []
+
+with open("actions-data.json", 'r') as fd:
+    employeesList = json.loads(fd.read())
+
+descriptions = []
+
+for employee in employeesList:
+    firstName = employee["attributes"]["first_name"]["value"]
+    lastName = employee["attributes"]["last_name"]["value"]
+    email = employee["attributes"]["email"]["value"]
+    position = employee["attributes"]["position"]["value"]
+    employment = employee["attributes"]["employment_type"]["value"]
+    hireDate = employee["attributes"]["hire_date"]["value"]
+    office = employee["attributes"]["office"]["value"]["attributes"]["name"]
+    departmnet = employee["attributes"]["department"]["value"]["attributes"]["name"]
+    secondMail = employee["attributes"]["dynamic_676432"]["value"] 
+    language = employee["attributes"]["dynamic_2690447"]["value"] 
+    contract = employee["attributes"]["dynamic_546104"]["value"] 
+    descriptions.append(firstName + "\n" + lastName + "\n" + email + "\n" + position + "\n" + employment + "\n" + str(hireDate) + "\n" + office + "\n" + departmnet + "\n" + secondMail + "\n" + language + "\n" + contract )
+    #print(descriptions.pop())
+
+for description in descriptions:
+    body = {
+    "folderCode": "ServiceRequest",
+    "data": {
+        "description": {
+            "values": [
+                {
+                "value": "Onboarding for" + firstName + " " + lastName + " on " + hireDate
+                }
+            ]
+        },
+        "description": {
+        "values": [
+            {
+            "value": descriptions
+            }
+        ]
+        }
+    }
+    }
+    body = json.dumps(body, indent=4)
+    result = requests.post('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data', data = body)
+    print(result)
+exit()
+
 
 r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204626', headers=headers)#, params=params) #||||11133725
 r3 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data', headers=headers, params=params)
