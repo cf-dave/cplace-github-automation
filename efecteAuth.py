@@ -18,6 +18,7 @@ data = {
 }
 
 response = requests.post('https://cplace.efectecloud-test.com/rest-api/itsm/v1/users/login', headers=headers, data=data)
+print(response)
 token = response.headers['Authorization'].split(' ')[1]
 print(token)
 
@@ -28,7 +29,7 @@ headers = {
 
 params = (
     #('filter', '$Self-Service Item$ = \'IT Repository | New\''),
-    ('selectedAttributes', 'subject, request_service, status, ServiceItem'),
+    ('selectedAttributes', 'Subject, request_service, status, ServiceItem'),
     ('limit', '50'),
     ('filterId', '1000000000'),
 )
@@ -59,31 +60,48 @@ for description in descriptions:
     body = {
     "folderCode": "ServiceRequest",
     "data": {
-        "description": {
+        "Subject": {
             "values": [
                 {
-                "value": "Onboarding for" + firstName + " " + lastName + " on " + hireDate
+                    "value": "Onboarding for" + firstName + " " + lastName + " on " + hireDate
+                }
+            ]
+        },
+        "RequestedFor": {
+            "values": [
+                {
+                    "value": "David Weyenschops"
+                }
+            ]
+        },
+        "ServiceItem": {
+            "values": [
+                {
+                    "value": "Generic Service Request"
                 }
             ]
         },
         "description": {
-        "values": [
-            {
-            "value": descriptions
-            }
-        ]
+            "values": [
+                {
+                "value": descriptions
+                }
+            ]
         }
     }
     }
-    body = json.dumps(body, indent=4)
-    result = requests.post('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data', data = body)
+    result = requests.post('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data?dataCards=true', json = body, headers=headers)
     print(result)
-exit()
+    #print(result.content)
+    print(result.text)
 
+exit()
 
 r2 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data/12204626', headers=headers)#, params=params) #||||11133725
 r3 = requests.get('https://cplace.efectecloud-test.com/rest-api/itsm/v1/dc/ServiceRequest/data', headers=headers, params=params)
-#print(r2.text)
+
+print(r3.text)
+
 r2T = json.loads(r2.text)
 r3T = json.loads(r3.text)
 dataCards = r3T['data']
