@@ -3,6 +3,7 @@ import json
 import logging
 import github
 import os
+import enum
 
 dc_url = 'https://cplace.efectecloud-test.com/itsm/EfecteFrameset.do#/workspace/datacard/view/'
 
@@ -26,119 +27,120 @@ class EfecteApi:
             logging.error(f"Can't acquire jwt token. Status code {response.status_code}.")
             return ""
 
-    def get_datacards(self, template_code: str, selected_attributes, limit: int = 50):
+    def get_datacards(self, template_code: str, selected_attributes, limit: int = 50, data_cards=True):
         params = {
             "limit": limit,
             "filterId": 100000000,
-            'dataCards': True
+            'selectedAttributes': ",".join(selected_attributes),
+            'dataCards': data_cards if len(selected_attributes) != 0 else False
         }
         response = requests.get(self.BASE_API_URL + f'/dc/{template_code}/data', headers=self.headers, params=params)
-        return response.json()
+
+        # TODO check meta for count < limit and request recursely
+
+        try:
+            return response.json()["data"]
+        except KeyError:
+            # TODo error handling
+            return dict()
 
     def get_datacard(self, template_code: str, datacard_id: int, selected_attributes):
         params = {
             'selectedAttributes': ",".join(selected_attributes),
         }
-        response = requests.get(self.BASE_API_URL + f'/dc/{template_code}/data/{datacard_id}', headers=self.headers, params=params)
+        response = requests.get(self.BASE_API_URL + f'/dc/{template_code}/data/{datacard_id}', headers=self.headers,
+                                params=params)
+        return response.json()
+
+    def get_all_datacards(self):
+        response = requests.get(self.BASE_API_URL + f'/dc/', headers=self.headers)
         return response.json()
 
 
-def main():
-    # cplace_github = github.Github(os.environ["github_token"])
-    # https://docs.github.com/en/rest/collaborators/collaborators#add-a-repository-collaborator
-    # cplace_github.get_repo("cfactory").add_to_collaborators("Timon33", "push")
+class GithubTicketStatus(enum.Enum):
+    NOT_STARTED = 1
+    WAITING_FOR_APPROVAL = 2
+    APPROVED = 3
+    IN_IMPLEMENTATION = 5
+    WAITING_FOR_DELIVERY = 6
+    CLOSED = 10
 
+
+class GithubApi:
+
+    def __init__(self, token):
+        self.cplace_github = github.Github(token)
+
+    def add_user_ticket(self, ticket):
+        # https://docs.github.com/en/rest/collaborators/collaborators#add-a-repository-collaborator
+        self.cplace_github.get_repo(ticket.repo_name).add_to_collaborators(ticket.github_user, ticket.permission)
+
+
+class GithubTicket:
+
+    def __init__(self, status: str, github_user: str, repo_name: str, permission: str, justification: str):
+        self.status = status
+        self.github_user = github_user
+        self.repo_name = repo_name
+        self.permission = permission
+        self.justification = justification
+
+
+class GithubAccessTicket(GithubTicket):
+
+    def __init__(self, status: str, github_user: str, repo_name: str, permission: str, justification: str):
+        super().__init__(status, github_user, repo_name, permission, justification)
+
+
+class GithubCreateRepoTicket(GithubTicket):
+
+    def __init__(self, status: str, github_user: str, repo_name: str, permission: str, justification: str):
+        super().__init__(status, github_user, repo_name, permission, justification)
+
+
+def parse_github_tickets(github_tickets: list):
+
+    def extract_val(attribute: dict):
+        if "values" in attribute.keys() and len(attribute["values"]) > 0:
+            return attribute["values"][0]["value"]
+
+    relevant_tickets = list()
+    for ticket in github_tickets:
+        data = ticket["data"]
+
+        # TODO this is bullshit, this should be changed in Efecte not worked around in code
+        try:
+            html_info = extract_val(data["AdditionalInformation"])[3:-4].split("<br>")
+            user, repo, permission, justification = [line.split(":", maxsplit=1)[-1] for line in html_info]
+            relevant_tickets.append(GithubTicket(extract_val(data["status"]), user, repo, permission, justification))
+
+        except Exception:
+            pass
+
+    return relevant_tickets
+
+
+def filter_github_tickets(tickets: list):
+    github_tickets = list()
+    for ticket in tickets:
+        # tickets of GitHub Managment
+        service_offerings = ticket["data"]["ServiceOffering"]["values"]
+        if len(service_offerings) > 0 and "GitHub Management" in [service["value"] for service in service_offerings]:
+            github_tickets.append(ticket)
+
+    return github_tickets
+
+
+def main():
     # TODO move credentials to github secrets
-    api = EfecteApi('restp-api-test', 'Cplace123!')
-    r = api.get_datacards('ServiceRequest', ('subject, request_service, status, ServiceItem, direktLink, AdditionalInformation'))
-    pass
+    # github_api = GithubApi(os.environ["github_token"])
+
+    efecte_api = EfecteApi('restp-api-test', 'Cplace123!')
+
+    service_request_tickets = efecte_api.get_datacards("ServiceRequest", ('ServiceOffering', 'status', 'AdditionalInformation'), limit=100)
+    service_request_tickets = filter_github_tickets(service_request_tickets)
+    github_tickets = parse_github_tickets(service_request_tickets)
 
 
 if __name__ == "__main__":
     main()
-
-"""
-api = EfecteApi('restp-api-test', 'Cplace123!')
-
-params = (
-    # ('filter', '$Self-Service Item$ = \'IT Repository | New\''),
-    ('selectedAttributes', 'subject, request_service, status, ServiceItem, direktLink, AdditionalInformation'),
-    ('limit', '50'),
-    ('filterId', '1000000000'),
-)
-
-
-notStarted = []
-approved = []
-for datacard in dataCards:  # Go through and filter the git hub ones out
-
-    if len(datacard['data']['request_service']['values']) > 0:
-        if datacard['data']['request_service']['values'][0]['name'] == 'GitHub Management':
-            service = datacard['data']['ServiceItem']['values'][0]['name']
-            status = datacard['data']['status']['values'][0]['value']
-            id = datacard['dataCardId']
-            if status == '01 - Not started':
-                print(status)
-                notStarted.append([id, service])
-            elif status == '03 - Approved':
-                print(status)
-                approved.append([id, service])
-            else:
-                continue
-ghRequests = [notStarted, approved]
-
-print(len(notStarted))
-
-for ticket in notStarted:
-    response = requests.get(url + str(ticket[0]), headers=headers, params=params)
-    text = json.loads(response.text)
-    print(text)
-    serviceOffering = text['data']['ServiceOffering']['values'][0]['value']
-    serviceItem = text['data']['ServiceItem']['values'][0]['name']
-    # link = text['data']['direktLink']['values'][0]['value']
-    additionalInformation = (text['data']['AdditionalInformation']['values'][0]['value']).split(" ")
-    # print(additionalInformation)
-    user = "cf-dave"
-    repo, level, justification = additionalInformation[1].split(':')[1], additionalInformation[3].split(':')[1], \
-                                 additionalInformation[4].split(':')[1]  # ,additionalInformation[3].split(':')[1]
-    if level == "Read":
-        level = "pull"
-    elif level == "Write":
-        level = "push"
-    link = dc_url + ticket[0]
-
-    service = -1  ## Entscheidung welche Aktion ausgeführt wird
-
-    if serviceItem == "IT Repository | New":
-        service = 1
-    elif serviceItem == "IT Repository | Access Request":
-        service = 2
-    else:
-        service = 0
-
-    if service == 1:
-        with open("todo.txt", 'w') as fd:
-            print(repo)
-            if (repo.startswith('cplace')):
-                fd.write("repoName:" + repo)
-                p = check_output(['node', 'createRepo.js'])
-                if p == "Script ran through":
-                    print("Script ran through")
-            else:
-                # reject for naming scheme
-                print("Illegal name")
-    elif service == 2:
-        with open("todo.txt", 'w') as fd:
-            # print(repo)
-            fd.write("user:" + user + "\n")
-            # if(repo.startswith('cplace')):
-            fd.write("repoName:" + repo + "\n")
-            fd.write("level:" + level + "\n")
-            fd.write("justification:" + justification + "\n")
-    sendEmail(link)
-
-if (status == "03 - Approved"):
-    # add user to repo
-else:
-    ("Illegal status")
-"""
